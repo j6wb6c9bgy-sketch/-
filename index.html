@@ -10,7 +10,7 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:sans-serif;
+font-family:-apple-system,BlinkMacSystemFont,sans-serif;
 }
 
 body{
@@ -20,45 +20,64 @@ background:#f5f5f5;
 header{
 background:#ff6b35;
 color:white;
+padding:30px 20px;
 text-align:center;
-padding:25px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
 header h1{
-font-size:28px;
+font-size:30px;
 }
 
 header p{
 margin-top:8px;
+opacity:0.9;
+}
+
+.search{
+padding:15px;
+}
+
+.search input{
+width:100%;
+padding:14px;
+border:none;
+border-radius:14px;
+font-size:16px;
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
 }
 
 .map{
-padding:15px;
+padding:0 15px 15px;
 }
 
 iframe{
 width:100%;
-height:300px;
+height:280px;
 border:none;
 border-radius:15px;
 }
 
 .container{
-padding:10px;
+padding:0 15px 15px;
 }
 
 .card{
 background:white;
-border-radius:15px;
-padding:15px;
-margin-bottom:15px;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
+border-radius:18px;
+overflow:hidden;
+margin-bottom:18px;
+box-shadow:0 2px 12px rgba(0,0,0,0.08);
 }
 
 .card img{
 width:100%;
-border-radius:12px;
-margin-bottom:10px;
+height:220px;
+object-fit:cover;
+}
+
+.content{
+padding:15px;
 }
 
 .star{
@@ -69,29 +88,44 @@ margin:8px 0;
 
 .tag{
 display:inline-block;
-background:#ffe0d1;
-padding:5px 10px;
-border-radius:10px;
-margin-top:5px;
+padding:6px 10px;
+background:#ffe4d7;
+border-radius:999px;
+margin-top:10px;
+font-size:14px;
 }
 
 .btn{
 display:block;
 width:100%;
+border:none;
 background:#ff6b35;
 color:white;
-border:none;
 padding:12px;
 border-radius:12px;
-margin-top:10px;
-font-size:16px;
+margin-top:12px;
+font-size:15px;
 cursor:pointer;
+}
+
+.section{
+font-size:22px;
+font-weight:bold;
+margin:15px;
+}
+
+.memo{
+background:white;
+margin:15px;
+padding:20px;
+border-radius:18px;
+box-shadow:0 2px 12px rgba(0,0,0,0.08);
 }
 
 footer{
 text-align:center;
-padding:20px;
-color:gray;
+padding:25px;
+color:#777;
 }
 </style>
 </head>
@@ -103,8 +137,16 @@ color:gray;
 <p>우리만의 맛집 아카이브</p>
 </header>
 
+<div class="search">
+<input type="text" placeholder="🔍 맛집 검색 기능 준비중">
+</div>
+
 <div class="map">
 <iframe src="https://maps.google.com/maps?q=인천&t=&z=11&ie=UTF8&iwloc=&output=embed"></iframe>
+</div>
+
+<div class="section">
+⭐ 맛집 리스트
 </div>
 
 <div class="container">
@@ -112,59 +154,77 @@ color:gray;
 <div class="card">
 <img src="https://d12zq4w4guyljn.cloudfront.net/300_300_20250923090333830_photo_fa02ea2165bd.webp">
 
+<div class="content">
 <h2>브레딜 베이크 하우스</h2>
 
 <div class="star">⭐ 5.0</div>
 
-<p>📍인천광역시 부평구 동수천로 64</p>
+<p>📍 인천광역시 부평구 동수천로 64</p>
 
-<p>
-🍜 잠봉뵈르 선율최애 왁뿌 연아 최애
+<p style="margin-top:10px;">
+🥖 잠봉뵈르 맛집
 </p>
 
 <div class="tag">#디저트</div>
 
-<button class="btn">
-지도 보기
+<button class="btn"
+onclick="window.open('https://maps.google.com')">
+📍 지도 보기
 </button>
+</div>
 </div>
 
 <div class="card">
 <img src="https://cdn.imweb.me/upload/S202403250861cd87f20a5/9564c21ef5d72.jpg">
 
+<div class="content">
 <h2>호앙비엣</h2>
 
 <div class="star">⭐ 4.8</div>
 
-<p>📍  인천광역시 부평구 부평대로12번길 12</p>
+<p>📍 인천광역시 부평구 부평대로12번길 12</p>
 
-<p>
-🥤 고기가 아주 부드러움
+<p style="margin-top:10px;">
+🍜 고기가 부드러운 쌀국수 맛집
 </p>
 
 <div class="tag">#쌀국수</div>
 
-<button class="btn">
-지도 보기
+<button class="btn"
+onclick="window.open('https://maps.google.com')">
+📍 지도 보기
 </button>
+</div>
 </div>
 
 <div class="card">
-<h2>➕ 친구 추천 맛집</h2>
+<div class="content">
+<h2>➕ 다음에 추가할 맛집</h2>
 
-<p>
-친구들이 추천한 맛집을 추가할 공간
+<p style="margin-top:10px;">
+여기에 새 맛집을 계속 추가하면 됨
 </p>
 
-<button class="btn">
-맛집 추가 예정
-</button>
+<div class="tag">#추가예정</div>
+</div>
 </div>
 
+</div>
+
+<div class="memo">
+<h2>📝 연아 & 선율 메모</h2>
+
+<ul style="padding-left:20px;margin-top:10px;">
+<li>가보고 싶은 맛집 추가하기</li>
+<li>평점 정리하기</li>
+<li>사진 교체하기</li>
+<li>카페 카테고리 추가하기</li>
+<li>야식 맛집 정리하기</li>
+</ul>
 </div>
 
 <footer>
-Made by 연아 ❤️ 선율
+Made with ❤️ by 연아 & 선율
 </footer>
 
 </body>
